@@ -25,6 +25,9 @@ def date_time():
     last_month = date_now - delta_month
     print_date('Месяц назад был день ', last_month)
 
+    date_string = '01/01/17 12:10:03.234567'
+    date_dt = datetime.strptime( date_string, '%d/%m/%y %H:%M:%S.%f')
+    print(date_dt)
 
 if __name__ == "__main__":
     date_time()
