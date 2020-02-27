@@ -26,7 +26,7 @@ def date_time():
     month = date_now.month
     if month == 1:
         year -= 1
-        month = 1
+        month = 12
     else:
         month -= 1
     delta_day = calendar.monthrange(year, month)[1]
