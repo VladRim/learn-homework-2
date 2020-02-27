@@ -1,6 +1,6 @@
 from datetime import datetime,timedelta
 import locale
-
+import calendar
 
 
 def print_date(name_day, date_print):
@@ -11,7 +11,8 @@ def print_date(name_day, date_print):
 def date_time():
     locale.setlocale(locale.LC_ALL, "russian")
     date_now = datetime.now()
-    
+
+
     print_date('Сегодня ', date_now)
   
     delta = timedelta(days=1)
@@ -21,7 +22,15 @@ def date_time():
     yesterday = date_now - delta
     print_date('Вчера был ', yesterday)
 
-    delta_month = timedelta(days=31)
+    year = date_now.year
+    month = date_now.month
+    if month == 1:
+        year -= 1
+        month = 1
+    else:
+        month -= 1
+    delta_day = calendar.monthrange(year, month)[1]
+    delta_month = timedelta(days=delta_day)
     last_month = date_now - delta_month
     print_date('Месяц назад был день ', last_month)
 
